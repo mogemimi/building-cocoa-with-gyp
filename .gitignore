@@ -1,0 +1,26 @@
+*.a
+*.exe
+*.filters
+*.lib
+*.pdb
+*.props
+*.sln
+*.so
+*.suo
+*.user
+*.vcproj
+*.vcxproj
+*.xcodeproj
+.DS_Store
+/out/
+/build.xcodefiles
+/build/Debug
+/build/Release
+/build/lib/
+/tools/gyp
+/tools/python
+
+# PyCharm
+.idea/
+build/.idea/
+tools/.idea/
