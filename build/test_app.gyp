@@ -38,7 +38,7 @@
         ],
       },
       'mac_bundle_resources': [
-		'../test/Base.lproj/MainMenu.xib',
+        '../test/Base.lproj/MainMenu.xib',
         '../test/English.lproj/InfoPlist.strings',
       ],
       'xcode_settings': {

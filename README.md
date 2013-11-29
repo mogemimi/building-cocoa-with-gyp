@@ -1,5 +1,7 @@
-cocoa-with-gyp
-===================
+Building Cocoa With GYP
+=======================
+
+Building a simple Cocoa+OpenGL application using GYP.  
 
 ## How to build
 
@@ -25,8 +27,8 @@ $ svn --version
 $ svn co http://gyp.googlecode.com/svn/trunk tools/gyp tools/gyp
 ```  
 
-Second, run setup.py.  
-To install globally with gyp:
+Second, run setup.py:  
+To install globally with gyp.
 
 ```
 $ cd tools/gyp
@@ -58,7 +60,3 @@ $ xcodebuild -project build/trivial.xcodeproj -configuration Release
 ```
 $ open build/build/Release/TestApp.app
 ```
-
-## See also
-
-* [gyp-getting-started](https://github.com/enginetrouble/gyp-getting-started)
