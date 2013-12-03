@@ -1,7 +1,7 @@
 Building Cocoa With GYP
 =======================
 
-Building a simple Cocoa+OpenGL application using GYP.  
+Building a simple Cocoa+OpenGL application using GYP(Generate Your Projects).  
 
 ## How to build
 
@@ -15,7 +15,7 @@ Building a simple Cocoa+OpenGL application using GYP.
 
 First, install GYP from https://chromium.googlesource.com/external/.  
 Make sure git is installed.
-From the root of your engine directory, run:  
+From the root directory of your Git repository, run:  
 ```
 $ git clone https://chromium.googlesource.com/external/gyp.git tools/gyp
 ```
