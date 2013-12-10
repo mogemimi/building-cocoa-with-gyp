@@ -17,7 +17,7 @@
         # arm
       }], # target_archs == "arm"
       ['target_arch == "ia32"', {
-		'xcode_settings': {
+        'xcode_settings': {
           'ARCHS': ['i386'],
         },
       }], # target_archs == "ia32"

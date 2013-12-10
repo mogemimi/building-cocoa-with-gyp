@@ -8,7 +8,7 @@ Building a simple Cocoa+OpenGL application using GYP(Generate Your Projects).
 ### Prerequisites
 
 * Xcode 5
-* OS X 10.7 or later
+* OS X 10.8 or later
 * Python (version 2.x)
 
 ### Prerequisite: Installing GYP
@@ -43,7 +43,7 @@ $ [sudo] python setup.py install
 $ gyp build/test_app.gyp --depth=. -f xcode --generator-output=./build.xcodefiles/
 ```
 
-#### 2. Build (Release/Debug)
+#### 2. Build (Debug/Release)
 
 ```
 $ xcodebuild -project build.xcodefiles/build/test_app.xcodeproj
