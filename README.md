@@ -52,7 +52,7 @@ $ xcodebuild -project build.xcodefiles/build/test_app.xcodeproj
 To build in release mode, use -configuration option:
 
 ```
-$ xcodebuild -project build/trivial.xcodeproj -configuration Release
+$ xcodebuild -project build.xcodefiles/build/test_app.xcodeproj -configuration Release
 ```
 
 #### 3. Running test
