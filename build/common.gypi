@@ -17,7 +17,9 @@
         # arm
       }], # target_archs == "arm"
       ['target_arch == "ia32"', {
-        # ia32
+		'xcode_settings': {
+          'ARCHS': ['i386'],
+        },
       }], # target_archs == "ia32"
       ['target_arch == "mipsel"', {
         # mipsel

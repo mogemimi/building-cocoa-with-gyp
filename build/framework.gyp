@@ -9,7 +9,6 @@
       '../include',
     ],
     'xcode_settings': {
-      'CC': 'clang',
       'GCC_VERSION': 'com.apple.compilers.llvm.clang.1_0',
       'CLANG_CXX_LANGUAGE_STANDARD': 'c++0x',
       'MACOSX_DEPLOYMENT_TARGET': '10.7', # OS X Deployment Target: 10.7
@@ -42,6 +41,8 @@
         'INFOPLIST_FILE': '../src/CocoaWithGYP-Info.plist',
         'DYLIB_INSTALL_NAME_BASE': '@executable_path/../../..',
         'CLANG_ENABLE_OBJC_ARC': 'YES',
+        'GCC_INLINES_ARE_PRIVATE_EXTERN': 'YES', # '-fvisibility-inlines-hidden'
+        'GCC_SYMBOLS_PRIVATE_EXTERN': 'YES', # '-fvisibility=hidden'
       },
     },
   ],# "targets"
