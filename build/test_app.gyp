@@ -9,9 +9,11 @@
       '../include',
     ],
     'xcode_settings': {
+      'CC': 'clang',
       'GCC_VERSION': 'com.apple.compilers.llvm.clang.1_0',
       'CLANG_CXX_LANGUAGE_STANDARD': 'c++0x',
       'MACOSX_DEPLOYMENT_TARGET': '10.7', # OS X Deployment Target: 10.7
+      'CLANG_CXX_LIBRARY': 'libc++', # libc++ requires OS X 10.7 or later
     },
   },
   'targets': [
@@ -43,9 +45,8 @@
       ],
       'xcode_settings': {
         'INFOPLIST_FILE': '../test/TestApp-Info.plist',
-        'OTHER_CPLUSPLUSFLAGS': ['-std=c++11','-stdlib=libc++'],
-        'OTHER_LDFLAGS': ['-stdlib=libc++'],
         'CLANG_ENABLE_OBJC_ARC': 'YES',
+        #'OTHER_LDFLAGS': ['-stdlib=libc++'],
       },
     },
   ],# "targets"
