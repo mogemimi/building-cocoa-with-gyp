@@ -27,6 +27,8 @@
       'sources': [
         '../include/CocoaWithGYP/CocoaOpenGLView.h',
         '../src/CocoaOpenGLView.mm',
+        '../src/QuadRenderer.cpp',
+        '../src/QuadRenderer.h',
       ],
       'link_settings': {
         'libraries': [

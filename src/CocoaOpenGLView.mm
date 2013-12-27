@@ -3,10 +3,17 @@
 //
 
 #import <CocoaWithGYP/CocoaOpenGLView.h>
-#include <OpenGL/gl.h>
+#include <memory>
 #include <array>
+#include <OpenGL/gl3.h>
+#include "QuadRenderer.h"
+
+using BuildingCocoaWithGyp::QuadRenderer;
 
 @implementation CocoaOpenGLView
+{
+	std::unique_ptr<QuadRenderer> quadRenderer;
+}
 
 @synthesize openGLContext = openGLContext_;
 @synthesize pixelFormat = pixelFormat_;
@@ -38,14 +45,14 @@
 + (NSOpenGLPixelFormat*)defaultPixelFormat
 {
 	NSOpenGLPixelFormatAttribute attribute[] = {
-		NSOpenGLPFAWindow,
 		NSOpenGLPFADoubleBuffer,
+		NSOpenGLPFAAccelerated,
+		NSOpenGLPFANoRecovery,
+		NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
 		NSOpenGLPFADepthSize, 24,
 		NSOpenGLPFAStencilSize, 8,
 		NSOpenGLPFAColorSize, 24,
 		NSOpenGLPFAAlphaSize, 8,
-		NSOpenGLPFANoRecovery,
-		NSOpenGLPFAAccelerated,
 		0
 	};
 	return [[NSOpenGLPixelFormat alloc] initWithAttributes:attribute];
@@ -56,17 +63,27 @@
 	if ([self openGLContext]) {
 		return;
 	}
-        
+
+	[self createOpenGLContext];
+	
+	
+	quadRenderer.reset(new QuadRenderer());
+}
+
+- (void)createOpenGLContext
+{
 	if ([self pixelFormat] == nil) {
 		[self setPixelFormat:[CocoaOpenGLView defaultPixelFormat]];
 	}
-        
+
 	[self setOpenGLContext:[[NSOpenGLContext alloc] initWithFormat:pixelFormat_ shareContext: nil]];
 	[[self openGLContext] makeCurrentContext];
 }
 
 - (void)clearGLContext
 {
+	quadRenderer.reset();
+
 	if (openGLContext_ != nil) {
 		[self setOpenGLContext:nil];
 	}
@@ -78,6 +95,9 @@
 
 - (void)reshape
 {
+	GLint width = [self frame].size.width;
+	GLint height = [self frame].size.height;
+	glViewport(0, 0, width, height);
 }
 
 - (void)lockFocus
@@ -112,6 +132,8 @@
 	
 	glClearColor(CornflowerBlue[0], CornflowerBlue[1], CornflowerBlue[2], 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
+	quadRenderer->Draw();
 	
 	glFlush();
 	
